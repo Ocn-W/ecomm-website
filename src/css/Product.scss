@@ -1,0 +1,60 @@
+@use '../index';
+
+//ProductCard Component
+.product {
+    @include index.flexColCenter;
+    background-color: index.$primary-bkg-color;
+    width: fit-content;
+
+    img {
+        background-color: grey;
+        height: 200px;
+        width: 200px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .productBtns button { 
+        margin: 10px;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+        border-radius: index.$curved-border;
+    }
+}
+
+//ProductBanner Component
+.productView {
+    @include index.flexRowCenter;
+    gap: 100px;
+    padding: 100px;
+    background-color: index.$primary-bkg-color;
+    color: index.$primary-txt-color;
+    height: 60vh;
+    width: 80vw;
+    border-radius: index.$curved-border;
+
+    .productImages {
+        @include index.flexColCenter;
+
+        img {
+            height: 350px;
+            width: 350px;
+        }
+    }
+
+    .productDetails {
+        @include index.flexColCenter;
+
+        .checkout,
+        .checkout div {
+            @include index.flexRowCenter;
+        }
+    }
+}
