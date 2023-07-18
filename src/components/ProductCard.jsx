@@ -16,6 +16,7 @@ export default function ProductCard({company, name, rating, price, id}) {
             <button>Add to Cart</button>
             <button>Favorite</button>
         </div>
+        {showProduct && <ProductBanner />}
     </section>
   )
 }
