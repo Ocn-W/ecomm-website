@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../css/Product.scss';
 import ProductBanner from './ProductBanner';
 
-export default function ProductCard({company, name, rating, price, id}) {
-  const [selectedProd, setSelectedProd] = useState('');  
+export default function ProductCard({company, name, rating, price, id}) {  
   const [showProduct, setShowProduct] = useState(false);
 
   return (

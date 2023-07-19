@@ -8,7 +8,11 @@
         color: index.$primary-txt-color;
         border-right: 1px solid black;
         height: 100vh;
-        width: 50%;        
+        min-width: 15vw;    
+        
+        p {
+            text-align: center;
+        }
         
         h2 {
             margin: 0;
@@ -37,7 +41,7 @@
                     border: none;
                     font-size: 18px;
                     cursor: pointer;
-                    }
+                }
             }
 
             .fPRange {
@@ -47,12 +51,18 @@
         }
     }
 
-    .clothingSection {
-        @include index.flexRowCenter;
-        flex-wrap: wrap;
+    .productSection {
+        @include index.flexColCenter;
         height: 100vh;
-        gap: 10px;
+        min-width: 85vw;
         overflow-y: scroll;
+
+        .products {
+            @include index.flexRowCenter;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%
+        }
 
         .changePage {
             @include index.flexRowCenter;
