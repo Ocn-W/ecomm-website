@@ -32,12 +32,17 @@
 //ProductBanner Component
 .productView {
     @include index.flexRowCenter;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     gap: 100px;
     padding: 100px;
     background-color: index.$primary-bkg-color;
+    box-shadow: index.$shadow;
     color: index.$primary-txt-color;
-    height: 60vh;
-    width: 80vw;
+    height: 60%;
+    width: 80%;
     border-radius: index.$curved-border;
 
     .productImages {
@@ -56,5 +61,16 @@
         .checkout div {
             @include index.flexRowCenter;
         }
+    }
+
+    .closeBtn {
+        color: red;
+        cursor: pointer;
+        font-size: 36px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: none;
+        border: none;
     }
 }
