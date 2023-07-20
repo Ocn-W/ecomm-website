@@ -3,11 +3,11 @@
 nav {
     @include index.flexColCenter;
     background-color: index.$primary-bkg-color;
-    border-bottom: 1px solid grey;
+    border-bottom: index.$border-default;
 
     .navUpper {
         @include index.flexRowCenter;
-        border-bottom: 1px solid black;
+        border-bottom: index.$border-default;
         gap: 75%;
         width: 100%;
     }
@@ -26,9 +26,11 @@ nav {
         }
     }
 
-    p {
+    a {
         color: index.$primary-txt-color;
         font-size: 26px;
+        cursor: pointer;
+        text-decoration: none;
     }
 
     ul{
@@ -47,15 +49,4 @@ nav {
           text-decoration: underline;
         }
     }
-
-    .navCategories {
-        width: 100%;
-        ul {
-            display: flex;
-            gap: 0;
-            flex-direction: column;
-            padding: 0;
-        }
-    }
-
 }

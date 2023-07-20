@@ -99,61 +99,131 @@ export default function ShoppingPage() {
   }
 
   return (
-    <div className='shoppingPage'>
-        <section className='filterBar'>
-          <h2>FILTER</h2>
-          <div className='filterPrice'>
-            <div className='fPInfo'>
-              <p>Pricing</p>
-              <button onClick={() => togglePriceFilter(priceFilter)}>{priceFilter ? '-' : '+'}</button>
-            </div>
-            {priceFilter && (<>
+    <div className="shoppingPage">
+    <div className='sideBar'>
+      <section className="searchCategories">
+        <ul>
+          <li>ALL PRODUCT</li>
+          <li>TOPS</li>
+          <li>PANTS</li>
+          <li>ACCESSORIES</li>
+        </ul>
+      </section>
+      <section className="filterBar">
+        <h2>FILTER</h2>
+        <div className="filterPrice">
+          <div className="fPInfo">
+            <p>Pricing</p>
+            <button onClick={() => togglePriceFilter(priceFilter)}>
+              {priceFilter ? "-" : "+"}
+            </button>
+          </div>
+          {priceFilter && (
+            <>
               <p>Sort from: ${priceFilterVal}</p>
-            <div className='fPRange'>
-              <label htmlFor='price-filter-low'>$30</label>
-                <input type='range' name='price-filter' min={30} max={300} value={priceFilterVal} onChange={(e) => priceVal(e)}/>
-              <label htmlFor='price-filter-high'>$300</label>
-            </div></>)}
+              <div className="fPRange">
+                <label htmlFor="price-filter-low">$30</label>
+                <input
+                  type="range"
+                  name="price-filter"
+                  min={30}
+                  max={300}
+                  value={priceFilterVal}
+                  onChange={(e) => priceVal(e)}
+                />
+                <label htmlFor="price-filter-high">$300</label>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="filterRating">
+          <div className="fRInfo">
+            <p>Rating</p>
+            <button onClick={() => toggleRatingFilter(ratingFilter)}>
+              {ratingFilter ? "-" : "+"}
+            </button>
           </div>
-          <div className='filterRating'>
-            <div className='fRInfo'>
-              <p>Rating</p>
-              <button onClick={() => toggleRatingFilter(ratingFilter)}>{ratingFilter ? '-' : '+'}</button>
-            </div>
-            {ratingFilter && (
-              <ul>
-                <li><input type='radio' name='rating-filter' value='★✩✩✩✩' id='one-star' onClick={(e) => ratingVal(e)}/><label htmlFor='one-star'>★✩✩✩✩</label></li>
-                <li><input type='radio' name='rating-filter' value='★★✩✩✩' id='two-star' onClick={(e) => ratingVal(e)}/><label htmlFor='two-star'>★★✩✩✩</label></li>
-                <li><input type='radio' name='rating-filter' value='★★★✩✩' id='three-star' onClick={(e) => ratingVal(e)}/><label htmlFor='three-star'>★★★✩✩</label></li>
-                <li><input type='radio' name='rating-filter' value='★★★★✩' id='four-star' onClick={(e) => ratingVal(e)}/><label htmlFor='four-star'>★★★★✩</label></li>
-                <li><input type='radio' name='rating-filter' value='★★★★★' id='five-star' onClick={(e) => ratingVal(e)}/><label htmlFor='five-star'>★★★★★</label></li>
-              </ul>
-            )}
-          </div>
-        </section>
-        <section className='productSection'>
-          <div className='products'>
-          {
-          priceFilter ? filterByPrice(productList) : 
-          ratingFilter ? filterByRating(productList) : 
-          productList.map((product, index) => {
-            return (
-              <ProductCard
-                company={product.company}
-                name={product.name}
-                price={product.price}
-                rating={product.rating}
-                id={product.id}
-                key={index}
-              />
-            )})
-          }
-          </div>  
-          <div className='changePage'>
-            <button>Previous</button>
-            <button>Next</button>
-          </div>
-        </section>
+          {ratingFilter && (
+            <ul>
+              <li>
+                <input
+                  type="radio"
+                  name="rating-filter"
+                  value="★✩✩✩✩"
+                  id="one-star"
+                  onClick={(e) => ratingVal(e)}
+                />
+                <label htmlFor="one-star">★✩✩✩✩</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="rating-filter"
+                  value="★★✩✩✩"
+                  id="two-star"
+                  onClick={(e) => ratingVal(e)}
+                />
+                <label htmlFor="two-star">★★✩✩✩</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="rating-filter"
+                  value="★★★✩✩"
+                  id="three-star"
+                  onClick={(e) => ratingVal(e)}
+                />
+                <label htmlFor="three-star">★★★✩✩</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="rating-filter"
+                  value="★★★★✩"
+                  id="four-star"
+                  onClick={(e) => ratingVal(e)}
+                />
+                <label htmlFor="four-star">★★★★✩</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="rating-filter"
+                  value="★★★★★"
+                  id="five-star"
+                  onClick={(e) => ratingVal(e)}
+                />
+                <label htmlFor="five-star">★★★★★</label>
+              </li>
+            </ul>
+          )}
+        </div>
+      </section>
+      </div>
+      <section className="productSection">
+        <div className="products">
+          {priceFilter
+            ? filterByPrice(productList)
+            : ratingFilter
+            ? filterByRating(productList)
+            : productList.map((product, index) => {
+                return (
+                  <ProductCard
+                    company={product.company}
+                    name={product.name}
+                    price={product.price}
+                    rating={product.rating}
+                    id={product.id}
+                    key={index}
+                  />
+                );
+              })}
+        </div>
+        <div className="changePage">
+          <button>Previous</button>
+          <button>Next</button>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

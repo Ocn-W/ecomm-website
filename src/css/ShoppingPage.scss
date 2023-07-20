@@ -4,9 +4,27 @@
     display: flex;
     background-color: index.$primary-bkg-color;
 
+    .searchCategories {
+        ul {
+            list-style: none;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+            border-right: index.$border-default;
+            border-bottom: index.$border-default;
+
+            li {
+                cursor: pointer;
+                font-weight: 500;
+            }:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
     .filterBar {
         color: index.$primary-txt-color;
-        border-right: 1px solid black;
+        border-right: index.$border-default;
         height: 100vh;
         min-width: 15vw;    
         
@@ -53,9 +71,9 @@
 
     .productSection {
         @include index.flexColCenter;
-        height: 100vh;
+        height: 85vh;
         min-width: 85vw;
-        overflow-y: scroll;
+        overflow-y: scroll !important; 
 
         .products {
             @include index.flexRowCenter;

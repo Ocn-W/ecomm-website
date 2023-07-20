@@ -1,0 +1,53 @@
+@use '../index';
+
+.playlist {
+    width: 100vw;
+    height: 80vh;
+    background-color: index.$primary-bkg-color;
+    @include index.flexRowCenter;
+
+    .banner {        
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-position: top;
+        background-size: cover;
+        height: 80vh;
+        width: 100%;
+        a {
+            background-color: rgba(0,0,0,.8);
+            padding: 30px;
+            color: white;
+            box-shadow: index.$shadow;
+            text-decoration: none;
+            border-radius: index.$curved-border;
+            margin-bottom: 10px;
+        }
+    }
+
+    .playlistBtns {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        button {
+            font-size: 40px;
+            margin: 0 20px;
+            background: none;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+    }
+
+    footer {
+        background-color: index.$primary-bkg-color;
+    }
+}
+
+.inactive {
+    display: none;
+}
