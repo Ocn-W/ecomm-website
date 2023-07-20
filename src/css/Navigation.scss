@@ -1,0 +1,61 @@
+@use '../index';
+
+nav {
+    @include index.flexColCenter;
+    background-color: index.$primary-bkg-color;
+    border-bottom: 1px solid grey;
+
+    .navUpper {
+        @include index.flexRowCenter;
+        border-bottom: 1px solid black;
+        gap: 75%;
+        width: 100%;
+    }
+
+    .navIcons {
+        @include index.flexRowCenter;
+        gap: 30px;
+
+        .navCart {
+            @include index.flexRowCenter;
+            gap: 10px;
+
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+
+    p {
+        color: index.$primary-txt-color;
+        font-size: 26px;
+    }
+
+    ul{
+        @include index.flexRowCenter;
+        list-style: none;
+        gap: 15%;
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+
+        a {
+            font-size: 18px;
+            text-decoration: none;
+            color: index.$primary-txt-color;
+        }:hover {
+          text-decoration: underline;
+        }
+    }
+
+    .navCategories {
+        width: 100%;
+        ul {
+            display: flex;
+            gap: 0;
+            flex-direction: column;
+            padding: 0;
+        }
+    }
+
+}
