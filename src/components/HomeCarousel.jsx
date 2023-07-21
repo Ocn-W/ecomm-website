@@ -8,37 +8,37 @@ export default function HomeCarousel() {
       <section className="productCarousel">
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Mens</Link>
+          <Link to="/shop">Mens</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Womens</Link>
+          <Link to="/shop">Womens</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Accessories</Link>
+          <Link to="/shop">Accessories</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Sale</Link>
+          <Link to="/shop">Sale</Link>
         </div>
       </section>
       <section className="productCarousel" aria-hidden='true'>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Mens</Link>
+          <Link to="/shop">Mens</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Womens</Link>
+          <Link to="/shop">Womens</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Accessories</Link>
+          <Link to="/shop">Accessories</Link>
         </div>
         <div>
           <img src="#" />
-          <Link to="/shop">Shop Sale</Link>
+          <Link to="/shop">Sale</Link>
         </div>
       </section>
     </div>

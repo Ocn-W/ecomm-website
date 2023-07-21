@@ -1,5 +1,12 @@
 @use '../index';
 
+.homepage {
+    height: 85vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
 .playlist {
     width: 100vw;
     height: 80vh;
@@ -54,10 +61,6 @@
         }  
         
     }
-
-
-
-
 }
 
 .carousel {   
@@ -79,18 +82,19 @@
 
         div {
             @include index.flexColCenter;
-            border: 1px solid blue;
             width: fit-content;
             cursor: pointer;
-            display: flex;
-            justify-content: flex-end;
 
             a {
                 position: absolute;
                 color: white;
                 text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
                 font-size: 20px;
-
+                height: 200px;
+                width: 200px;
             }
             img {
                 height: 200px;
@@ -111,7 +115,48 @@
     }
 }
 
-
-footer {
+.large-categories {
     background-color: index.$primary-bkg-color;
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    gap: 50px 0;
+
+    div {
+        height: 300px;
+        width: 500px;
+        background-color: grey;
+        display: flex;
+
+        img {
+            position: absolute;
+            width: 500px;
+            height: 300px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+            text-shadow: index.$shadow;
+            font-size: 80px;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+}
+footer {
+    text-align: center;
+    background-color: index.$primary-bkg-color;
+    border: 1px solid white;
+    color: black;
+    font-weight: 100;
 }

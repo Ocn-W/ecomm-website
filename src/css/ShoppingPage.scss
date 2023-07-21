@@ -15,6 +15,7 @@
 
             li {
                 cursor: pointer;
+                padding-left: 10px;
                 font-weight: 500;
             }:hover{
                 text-decoration: underline;
@@ -25,7 +26,7 @@
     .filterBar {
         color: index.$primary-txt-color;
         border-right: index.$border-default;
-        height: 100vh;
+        height: 100%;
         min-width: 15vw;    
         
         p {
@@ -33,6 +34,7 @@
         }
         
         h2 {
+            text-align: center;
             margin: 0;
             padding: 10px 0;
             border-bottom: index.$border-default;
@@ -52,7 +54,8 @@
             .fPInfo,
             .fRInfo {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-evenly;
+                gap: 50%;
 
                 button {
                     background-color: rgba(0, 0, 0, 0);
@@ -73,7 +76,7 @@
         @include index.flexColCenter;
         height: 85vh;
         min-width: 85vw;
-        overflow-y: scroll !important; 
+        overflow-y: scroll; 
 
         .products {
             @include index.flexRowCenter;

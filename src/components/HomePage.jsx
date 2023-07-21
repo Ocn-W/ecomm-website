@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/HomePage.scss';
 import HomeBanner from './HomeBanner';
@@ -6,7 +6,7 @@ import HomeCarousel from './HomeCarousel';
 
 export default function HomePage() {
   return (
-    <div>
+    <section className='homepage'>
     <section className='playlist'>
         <HomeBanner/>
     </section>
@@ -14,22 +14,26 @@ export default function HomePage() {
         <HomeCarousel/>
     </section>
     <section className='large-categories'>
-        <div>
-            <Link to='/shop'>Shop Now</Link>
+        <div >
+            <img src='#'/>
+            <Link to='/shop'>MENS</Link>
         </div>
         <div>
-            <Link to='/shop'>Shop Now</Link>
+            <img src='#'/>
+            <Link to='/shop'>WOMENS</Link>
         </div>
         <div>
-            <Link to='/shop'>Shop Now</Link>
+            <img src='#'/>
+            <Link to='/shop' style={{fontSize:'72px'}}>ACCESSORIES</Link>
         </div>
         <div>
-            <Link to='/shop'>Shop Now</Link>
+            <img src='#'/>
+            <Link to='/shop' style={{color:'red', textDecoration:'underline',textShadow:'none'}}>SALE</Link>
         </div>
     </section>
     <footer>
         <p>2023 Ocean Waring</p>
     </footer>
-    </div>
+    </section>
   )
 }
