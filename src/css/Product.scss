@@ -32,45 +32,136 @@
 //ProductBanner Component
 .productView {
     @include index.flexRowCenter;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    gap: 100px;
-    padding: 100px;
+    gap: 50px;
     background-color: index.$primary-bkg-color;
     box-shadow: index.$shadow;
     color: index.$primary-txt-color;
-    height: 60%;
-    width: 80%;
-    border-radius: index.$curved-border;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    animation: displayProduct .1s 0s linear;
 
     .productImages {
-        @include index.flexColCenter;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
 
         img {
-            height: 350px;
-            width: 350px;
+            height: 400px;
+            width: 400px;
+            margin-top: 20px;
+            cursor: zoom-in;
+        }
+
+        .imageSelect {
+            @include index.flexRowCenter;
+            gap: 30px;
+            width: 400px;
+            height: 100px;
+
+            img {
+                height: 75px;
+                width: 75px;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
         }
     }
 
     .productDetails {
-        @include index.flexColCenter;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        justify-content: space-evenly;
+        gap: 10px;
+        margin-top: 40px;
+        width: 50%;
+        height: 70%;
+
+        text-align: center;
+
+        h1 {
+            font-size: 20px;
+            line-height: 0;
+            font-weight: 400;
+            margin: 0;
+        }
+        h2 {
+            font-size: 26px;
+            font-weight: 500;
+        }
+        aside {
+            line-height: 1.5;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 400;
+        }
 
         .checkout,
         .checkout div {
             @include index.flexRowCenter;
+            gap: 10%;
+        }
+
+        .checkout {
+            div {
+                button {
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background-color: rgba(0,0,0,0.8);
+                }:active {
+                    color: grey;
+                }
+
+                p {
+                    text-shadow: index.$shadow;
+                    color: black;
+                    font-size: 18px;
+                    font-weight: 400; 
+                }
+
+            }
+
+            button {
+                cursor: pointer;
+                background-color: green;
+                color: white;
+                font-size: 18px;
+                border: none;
+                padding: 20px;
+                border-radius: index.$curved-border;
+            }:active {
+                color: grey;
+            }
         }
     }
 
     .closeBtn {
         color: red;
         cursor: pointer;
-        font-size: 36px;
+        font-size: 30px;
         position: absolute;
         right: 10px;
         top: 10px;
         background: none;
         border: none;
+    }.closeBtn:active {
+        color: darkred;
+    }
+}
+
+@keyframes displayProduct {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

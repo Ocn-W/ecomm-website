@@ -22,18 +22,22 @@ export default function ProductBanner({productCompany, productName, productRatin
     <section className="productView">
       <button
         className="closeBtn"
-        onClick={() => setCloseDisplay(!closeDisplay)}>X</button>
+        onClick={() => setCloseDisplay(!closeDisplay)}>X
+      </button>
       <section className="productImages">
         <img src="#" />
-        <div className="imageCarousel">
-          <p>Mapped Images</p>
+        <div className="imageSelect">
+            <img src='#'/>
+            <img src='#'/>
+            <img src='#'/>
+            <img src='#'/>
         </div>
       </section>
       <section className="productDetails">
         <div>
-          <p>{productCompany}</p>
-          <h1>{productName}</h1>
-          <aside>{productRating}</aside>
+          <h1>{productCompany}</h1>
+          <h2>{productName}</h2>
+          <aside style={{color:'gold',textShadow:'0 0 1px black'}}>{productRating}</aside>
           <aside>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius
             sodales justo, in varius ipsum aliquet quis. Nam lorem nulla,
@@ -59,7 +63,7 @@ export default function ProductBanner({productCompany, productName, productRatin
               +
             </button>
           </div>
-          <button>Add to cart</button>
+          <button>ADD TO CART</button>
         </section>
       </section>
     </section>
