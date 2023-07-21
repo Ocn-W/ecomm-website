@@ -47,11 +47,32 @@
         flex-direction: column;
         align-self: flex-start;
 
-        img {
-            height: 400px;
-            width: 400px;
-            margin-top: 20px;
-            cursor: zoom-in;
+        .productImgContainer {
+            position: relative;
+
+            .zoom {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                box-shadow: index.$shadow;
+                background-size: 500px 500px; /* The zoomed-in image size  */
+                background-repeat: no-repeat;
+                border: 1px solid black;
+                display: none;
+                pointer-events: none;
+            }
+            
+            /* Add the 'zoomed' class when the zoom effect is active */
+            .zoom.zoomed {
+                display: block;
+            }
+        
+            img {
+                height: 400px;
+                width: 400px;
+                margin-top: 20px;
+                cursor: none;
+            }
         }
 
         .imageSelect {
@@ -79,7 +100,6 @@
         margin-top: 40px;
         width: 50%;
         height: 70%;
-
         text-align: center;
 
         h1 {
