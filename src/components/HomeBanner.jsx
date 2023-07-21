@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import '../css/HomePage.scss';
+import image1 from '../assets/fashionimage1.png';
+import image2 from '../assets/fashionimage2.png';
+import image3 from '../assets/fashionimage3.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -7,9 +10,9 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 export default function HomeBanner() {
   const [activeBanner, setActiveBanner] = useState(0);
   const bannerBkgs = [
-    { backgroundImage: 'url(../assets/fashionimage1.png)' },
-    { backgroundImage: 'url(../assets/fashionimage2.png)' },
-    { backgroundImage: 'url(../assets/fashionimage3.png)' },
+    { backgroundImage: `url(${image1})` },
+    { backgroundImage: `url(${image2})` },
+    { backgroundImage: `url(${image3})` },
   ];
 
   return (
@@ -19,6 +22,7 @@ export default function HomeBanner() {
           <Link to='/shop'>Shop Now</Link>
         </div>
       ))}
+        
       <div className="playlistBtns">
         <button onClick={() => setActiveBanner(activeBanner !== 0 ? activeBanner - 1 : 2)}>
           <FontAwesomeIcon icon={faArrowLeft} />

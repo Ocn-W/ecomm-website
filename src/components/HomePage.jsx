@@ -9,11 +9,11 @@ export default function HomePage() {
     const banner = activeBanner;
 
   return (
-    <>
+    <div>
     <section className='playlist'>
         <HomeBanner/>
     </section>
-    <section className='carousel'>
+    {/* <section className='carousel'>
         <HomeCarousel/>
     </section>
     <section className='large-categories'>
@@ -32,7 +32,7 @@ export default function HomePage() {
     </section>
     <footer>
         <p>2023 Ocean Waring</p>
-    </footer>
-    </>
+    </footer> */}
+    </div>
   )
 }
