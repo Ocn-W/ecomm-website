@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../css/HomePage.scss';
 import image1 from '../assets/fashionimage1.png';
 import image2 from '../assets/fashionimage2.png';
@@ -14,6 +14,12 @@ export default function HomeBanner() {
     { backgroundImage: `url(${image2})` },
     { backgroundImage: `url(${image3})` },
   ];
+
+  useEffect(() => {
+    setTimeout(() => {
+        setActiveBanner(activeBanner !== bannerBkgs.length - 1 ? activeBanner + 1 : 0)
+    }, 3000)
+  })
 
   return (
     <section className="banner">

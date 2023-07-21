@@ -57,9 +57,61 @@
 
 
 
-    footer {
-        background-color: index.$primary-bkg-color;
+
+}
+
+.carousel {   
+    background-color: index.$primary-bkg-color;
+
+    .scroll-horizontal {
+        display: flex;
+        --gap: 2rem;
+        gap: var(--gap);
+    }
+
+    .productCarousel {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        gap: var(--gap);
+        animation: carouselScroll linear 30s infinite;
+        min-width: 100%;
+
+        div {
+            @include index.flexColCenter;
+            border: 1px solid blue;
+            width: fit-content;
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                position: absolute;
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+
+            }
+            img {
+                height: 200px;
+                width: 200px;
+                background-color: grey;
+            }
+        }
+    }
+}
+
+@keyframes carouselScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
     }
 }
 
 
+footer {
+    background-color: index.$primary-bkg-color;
+}

@@ -5,15 +5,12 @@ import HomeBanner from './HomeBanner';
 import HomeCarousel from './HomeCarousel';
 
 export default function HomePage() {
-    const [activeBanner, setActiveBanner] = useState(0);
-    const banner = activeBanner;
-
   return (
     <div>
     <section className='playlist'>
         <HomeBanner/>
     </section>
-    {/* <section className='carousel'>
+    <section className='carousel'>
         <HomeCarousel/>
     </section>
     <section className='large-categories'>
@@ -32,7 +29,7 @@ export default function HomePage() {
     </section>
     <footer>
         <p>2023 Ocean Waring</p>
-    </footer> */}
+    </footer>
     </div>
   )
 }
