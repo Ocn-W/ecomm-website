@@ -1,29 +1,40 @@
 import React, { useState } from "react";
 import { useAtom } from "jotai";
 import { displayProdAtom } from "./ProductCard";
+import { addToCartAtom } from "./ShoppingCart";
 import "../css/Product.scss";
 import shirt from "../assets/TShirt.jpg";
+import img2 from '../assets/LongSleeve.jpg';
+import img3 from '../assets/Sweater.jpg';
+import img4 from '../assets/Jacket.jpg';
 
-export default function ProductBanner({
-  productCompany,
-  productName,
-  productRating,
-  productPrice,
-  productId,
-}) {
-  const [numOfProduct, setProductNum] = useState(0);
+export default function ProductBanner({company,name,rating,price,id,}) {
+  const [numOfProduct, setProductNum] = useState(1);
+  const [productSize, setProductSize] = useState('');
+  const [insideCart, setInsideCart] = useAtom(addToCartAtom);
   const [closeDisplay, setCloseDisplay] = useAtom(displayProdAtom);
   const [zoomed, setZoomed] = useState(false);
   const [lensPosition, setLensPosition] = useState({ x: 0, y: 0 });
+  const [currProdImg, setCurrProdImg] = useState(shirt);
 
+  function addToCart() {
+    const product = {
+      company:company, 
+      name:name,
+      rating:rating, 
+      price:price, 
+      id:id,
+    };
+    return setInsideCart((prev) => [product, ...prev]);
+  }
+
+//Image-Zoom Feature
   const handleMouseEnter = () => {
     setZoomed(true);
   };
-
   const handleMouseLeave = () => {
     setZoomed(false);
   };
-
   const handleMouseMove = (e) => {
     if (zoomed) {
       const imageRect = e.currentTarget.getBoundingClientRect();
@@ -42,14 +53,15 @@ export default function ProductBanner({
     }
   };
 
+//Product to Shopping Cart Features
   function IncrCount(prevCount) {
     return prevCount + 1;
   }
   function DecrCount(prevCount) {
-    if (prevCount > 0) {
+    if (prevCount > 1) {
       return prevCount - 1;
     } else {
-      return 0;
+      return 1;
     }
   }
 
@@ -69,35 +81,31 @@ export default function ProductBanner({
               marginTop: `${lensPosition.y}px`,
               marginLeft: `${lensPosition.x}px`,
               backgroundPosition: `-${lensPosition.x}px -${lensPosition.y}px`,
-              backgroundImage: `url(${shirt})`,
+              backgroundImage: `url(${currProdImg})`,
             }}
           ></div>
-          <img
-            src={shirt}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
+          <img src={currProdImg} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
         </div>
         <div className="imageSelect">
-          <img src="#" />
-          <img src="#" />
-          <img src="#" />
-          <img src="#" />
+          <img src={shirt} onClick={() => setCurrProdImg(shirt)}/>
+          <img src={img2} onClick={() => setCurrProdImg(img2)}/>
+          <img src={img3} onClick={() => setCurrProdImg(img3)}/>
+          <img src={img4} onClick={() => setCurrProdImg(img4)}/>
         </div>
       </section>
       <section className="productDetails">
         <div>
-          <h1>{productCompany}</h1>
-          <h2>{productName}</h2>
+          <h1>{company}</h1>
+          <h2>{name}</h2>
           <aside style={{ color: "gold", textShadow: "0 0 1px black" }}>
-            {productRating}
+            {rating}
           </aside>
           <aside>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius
             sodales justo, in varius ipsum aliquet quis. Nam lorem nulla,
             aliquam id tellus sit amet, tristique fermentum sapien.
           </aside>
-          <h2>${productPrice}</h2>
+          <h2>${price}</h2>
           <label htmlFor="product-size">Size: </label>
           <select id="product-size" name="product-size">
             <option value="xs">XS</option>
@@ -117,7 +125,7 @@ export default function ProductBanner({
               +
             </button>
           </div>
-          <button>ADD TO CART</button>
+          <button onClick={() => addToCart()} onSubmit={() => setProductSize(select.option.value)}>ADD TO CART</button>
         </section>
       </section>
     </section>

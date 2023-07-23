@@ -1,4 +1,5 @@
 import './App.scss';
+import CheckoutPage from './components/CheckoutPage';
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import ShoppingPage from './components/ShoppingPage';
@@ -10,6 +11,7 @@ export default function App() {
       <Route path='/' element={<Root />}>
         <Route index element={<HomePage/>}/>
         <Route path='/shop' element={<ShoppingPage/>}/>
+        <Route path='/checkout' element={<CheckoutPage/>}/>
       </Route>
     )
   )

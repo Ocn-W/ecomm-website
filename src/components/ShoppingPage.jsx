@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useAtom, atom } from 'jotai';
 import '../css/ShoppingPage.scss';
 import ProductCard from './ProductCard';
+
+export const productListAtom = atom([]);
 
 export default function ShoppingPage() {
   const [priceFilter, setPriceFilter] = useState(false);
   const [ratingFilter, setRatingFilter] = useState(false);
   const [priceFilterVal, setPriceFilterVal] = useState(30);
   const [ratingFilterVal, setRatingFilterVal] = useState(null);
-  const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useAtom(productListAtom);
 
   useEffect(() => {
     function generateProd() {
@@ -214,6 +217,7 @@ export default function ShoppingPage() {
                     price={product.price}
                     rating={product.rating}
                     id={product.id}
+                    index={index}
                     key={index}
                   />
                 );

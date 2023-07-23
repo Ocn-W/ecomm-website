@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/Navigation.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHeart,
-  faMagnifyingGlass,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import {faHeart,faMagnifyingGlass,faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useAtom } from "jotai";
+import ShoppingCart, { addToCartAtom, showCartAtom } from "./ShoppingCart";
 
 export default function Navigation() {
+  const cart = useAtom(addToCartAtom);
+  const [checkout, setCheckout] = useAtom(showCartAtom);
+  const [showCart, setShowCart] = useAtom(showCartAtom);
+  const cartTotal = totalQuantity();
+
+  function totalQuantity() {
+    const productQuantities = cart[0].map(product => product.quantity).reduce((acc, currVal) => acc + currVal, 0); 
+    return productQuantities;
+  }
+
   return (
+    <>
     <nav>
       <section className="navUpper">
         <Link to='/'>Retail Site</Link>
@@ -19,12 +28,13 @@ export default function Navigation() {
             style={{ cursor: "pointer" }}
           />
           <FontAwesomeIcon icon={faHeart} style={{ cursor: "pointer" }} />
-          <div className="navCart">
+            <div className="navCart" >
             <FontAwesomeIcon
               icon={faShoppingCart}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer",fontSize:'16px'}}
+              onClick={() => setShowCart(!showCart)}
             />
-            <p>0</p>
+            <p>{cartTotal}</p>
           </div>
         </div>
       </section>
@@ -46,5 +56,6 @@ export default function Navigation() {
         </li>
       </ul>
     </nav>
-  );
+  {showCart && <ShoppingCart/>}
+  </>);
 }
