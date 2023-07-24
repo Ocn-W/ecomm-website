@@ -6,13 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function CheckoutPage() {
-  const cartProductList = useAtom(addToCartAtom);
+  const [cartProductList, updateCartProductList] = useAtom(addToCartAtom);
   const itemTotal = sumOfProducts();
   const taxes = taxCalc(itemTotal);
   const total = itemTotal + taxes;
 
   function sumOfProducts() {
-    const productSum = cartProductList[0]
+    const productSum = cartProductList
       .map((product) => product.price * product.quantity)
       .reduce((acc, currVal) => acc + currVal, 0);
     return productSum;
@@ -22,6 +22,12 @@ export default function CheckoutPage() {
     const taxRate = (Math.random() * 3 + 4) / 100;
     return Math.floor(taxRate * itemTotal);
   };
+
+  function removeProduct(id, size) {
+    console.log(id)
+    console.log('im trying to remove ' + id)
+    return updateCartProductList(cartProductList.filter((product) => product.id !== id || product.size !== size));
+  }
 
   return (
     <div className='checkout'>      
@@ -41,7 +47,7 @@ export default function CheckoutPage() {
           </ul>
         </div>
         <div className='productSection'>
-      {cartProductList[0].map((product) => {
+      {cartProductList.map((product) => {
               return (
                 <div className='products'>
                   <img src="#" />
@@ -50,8 +56,7 @@ export default function CheckoutPage() {
                   <p>${product.price}</p>
                   <p>Sz: {product.size}</p>
                   <p>Qty: {product.quantity}</p>
-                  <button style={{color:'rgba(4, 92, 255, 0.5)'}}>Edit</button>
-                  <button style={{color:'rgba(206, 29, 29, 0.5)'}}>Remove</button>
+                  <button style={{color:'rgba(206, 29, 29, 0.5)'}} onClick={() => removeProduct(product.id, product.size)}>Remove</button>
                 </div>
               );
             })}
