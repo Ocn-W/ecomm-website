@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../css/HomePage.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../css/HomePage.scss";
 
 export default function HomeCarousel() {
   return (
-    <div className='scroll-horizontal'>
+    <div className="scroll-horizontal">
       <section className="productCarousel">
         <div>
           <img src="#" />
@@ -23,7 +23,7 @@ export default function HomeCarousel() {
           <Link to="/shop">Sale</Link>
         </div>
       </section>
-      <section className="productCarousel" aria-hidden='true'>
+      <section className="productCarousel" aria-hidden="true">
         <div>
           <img src="#" />
           <Link to="/shop">Mens</Link>

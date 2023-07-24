@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useAtom, atom } from 'jotai';
-import '../css/ShoppingPage.scss';
-import ProductCard from './ProductCard';
+import React, { useState, useEffect } from "react";
+import { useAtom, atom } from "jotai";
+import "../css/ShoppingPage.scss";
+import Product from "./Product";
 
 export const productListAtom = atom([]);
 
@@ -43,17 +43,16 @@ export default function ShoppingPage() {
       product.company = companies[Math.floor(Math.random() * companies.length)];
       product.name = prodNames[Math.floor(Math.random() * prodNames.length)];
       product.rating = ratings[Math.floor(Math.random() * ratings.length)];
-      const priceRange = (300 - 30 + 1) + 30; //(MaxPrice - MinPrice + 1) + MinPrice
+      const priceRange = 300 - 30 + 1 + 30; //(MaxPrice - MinPrice + 1) + MinPrice
       product.price = Math.floor(Math.random() * priceRange);
 
-      return (
-        product = {
+      return (product = {
         company: product.company,
         name: product.name,
         price: product.price,
         rating: product.rating,
         id: productId,
-      })
+      });
     }
     //Create an array of 15 items using the generateProd function
     setProductList(Array.from({ length: 15 }, generateProd));
@@ -69,139 +68,143 @@ export default function ShoppingPage() {
   }
 
   function priceVal(e) {
-    setPriceFilterVal(parseInt(e.target.value))
+    setPriceFilterVal(parseInt(e.target.value));
   }
   function ratingVal(e) {
-    setRatingFilterVal(e.target.value)
+    setRatingFilterVal(e.target.value);
   }
 
   function filterByPrice(productList) {
-    return productList.filter((product) => product.price <= priceFilterVal).map((product, index) => (
-      <ProductCard
-        company={product.company}
-        name={product.name}
-        price={product.price}
-        rating={product.rating}
-        id={product.id}
-        key={index}
-      />
-    ))
+    return productList
+      .filter((product) => product.price <= priceFilterVal)
+      .map((product, index) => (
+        <Product
+          company={product.company}
+          name={product.name}
+          price={product.price}
+          rating={product.rating}
+          id={product.id}
+          key={index}
+        />
+      ));
   }
 
   function filterByRating(productList) {
-    return productList.filter((product) => product.rating === ratingFilterVal).map((product, index) => (
-      <ProductCard
-        company={product.company}
-        name={product.name}
-        price={product.price}
-        rating={product.rating}
-        id={product.id}
-        key={index}
-      />
-    ))
+    return productList
+      .filter((product) => product.rating === ratingFilterVal)
+      .map((product, index) => (
+        <Product
+          company={product.company}
+          name={product.name}
+          price={product.price}
+          rating={product.rating}
+          id={product.id}
+          key={index}
+        />
+      ));
   }
 
   return (
     <div className="shoppingPage">
-    <div className='sideBar'>
-      <section className="searchCategories">
-        <ul>
-          <li>ALL PRODUCT</li>
-          <li>TOPS</li>
-          <li>PANTS</li>
-          <li>ACCESSORIES</li>
-        </ul>
-      </section>
-      <section className="filterBar">
-        <h2>FILTER</h2>
-        <div className="filterPrice">
-          <div className="fPInfo">
-            <p>Pricing</p>
-            <button onClick={() => togglePriceFilter(priceFilter)}>
-              {priceFilter ? "-" : "+"}
-            </button>
+      <div className="sideBar">
+        <section className="searchCategories">
+          <ul>
+            <li>ALL PRODUCT</li>
+            <li>TOPS</li>
+            <li>PANTS</li>
+            <li>ACCESSORIES</li>
+          </ul>
+        </section>
+        <section className="filterBar">
+          <h2>FILTER</h2>
+          <div className="filterPrice">
+            <div className="fPInfo">
+              <p>Pricing</p>
+              <button onClick={() => togglePriceFilter(priceFilter)}>
+                {priceFilter ? "-" : "+"}
+              </button>
+            </div>
+            {priceFilter && (
+              <>
+                <p>Sort from: ${priceFilterVal}</p>
+                <div className="fPRange">
+                  <label htmlFor="price-filter-low">$30</label>
+                  <input
+                    type="range"
+                    name="price-filter"
+                    min={30}
+                    max={300}
+                    value={priceFilterVal}
+                    onChange={(e) => priceVal(e)}
+                  />
+                  <label htmlFor="price-filter-high">$300</label>
+                </div>
+              </>
+            )}
           </div>
-          {priceFilter && (
-            <>
-              <p>Sort from: ${priceFilterVal}</p>
-              <div className="fPRange">
-                <label htmlFor="price-filter-low">$30</label>
-                <input
-                  type="range"
-                  name="price-filter"
-                  min={30}
-                  max={300}
-                  value={priceFilterVal}
-                  onChange={(e) => priceVal(e)}
-                />
-                <label htmlFor="price-filter-high">$300</label>
-              </div>
-            </>
-          )}
-        </div>
-        <div className="filterRating">
-          <div className="fRInfo">
-            <p>Rating</p>
-            <button onClick={() => toggleRatingFilter(ratingFilter)}>
-              {ratingFilter ? "-" : "+"}
-            </button>
+          <div className="filterRating">
+            <div className="fRInfo">
+              <p>Rating</p>
+              <button onClick={() => toggleRatingFilter(ratingFilter)}>
+                {ratingFilter ? "-" : "+"}
+              </button>
+            </div>
+            {ratingFilter && (
+              <ul>
+                <li>
+                  <input
+                    type="radio"
+                    name="rating-filter"
+                    value="★✩✩✩✩"
+                    id="one-star"
+                    onClick={(e) => ratingVal(e)}
+                  />
+                  <label htmlFor="one-star">★✩✩✩✩</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="rating-filter"
+                    value="★★✩✩✩"
+                    id="two-star"
+                    onClick={(e) => ratingVal(e)}
+                  />
+                  <label htmlFor="two-star">★★✩✩✩</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="rating-filter"
+                    value="★★★✩✩"
+                    id="three-star"
+                    onClick={(e) => ratingVal(e)}
+                  />
+                  <label htmlFor="three-star">★★★✩✩</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="rating-filter"
+                    value="★★★★✩"
+                    id="four-star"
+                    onClick={(e) => ratingVal(e)}
+                  />
+                  <label htmlFor="four-star">★★★★✩</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="rating-filter"
+                    value="★★★★★"
+                    id="five-star"
+                    onClick={(e) => ratingVal(e)}
+                  />
+                  <label htmlFor="five-star">★★★★★</label>
+                </li>
+              </ul>
+            )}
           </div>
-          {ratingFilter && (
-            <ul>
-              <li>
-                <input
-                  type="radio"
-                  name="rating-filter"
-                  value="★✩✩✩✩"
-                  id="one-star"
-                  onClick={(e) => ratingVal(e)}
-                />
-                <label htmlFor="one-star">★✩✩✩✩</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="rating-filter"
-                  value="★★✩✩✩"
-                  id="two-star"
-                  onClick={(e) => ratingVal(e)}
-                />
-                <label htmlFor="two-star">★★✩✩✩</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="rating-filter"
-                  value="★★★✩✩"
-                  id="three-star"
-                  onClick={(e) => ratingVal(e)}
-                />
-                <label htmlFor="three-star">★★★✩✩</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="rating-filter"
-                  value="★★★★✩"
-                  id="four-star"
-                  onClick={(e) => ratingVal(e)}
-                />
-                <label htmlFor="four-star">★★★★✩</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="rating-filter"
-                  value="★★★★★"
-                  id="five-star"
-                  onClick={(e) => ratingVal(e)}
-                />
-                <label htmlFor="five-star">★★★★★</label>
-              </li>
-            </ul>
-          )}
-        </div>
-      </section>
+        </section>
       </div>
       <section className="productSection">
         <div className="products">
@@ -211,7 +214,7 @@ export default function ShoppingPage() {
             ? filterByRating(productList)
             : productList.map((product, index) => {
                 return (
-                  <ProductCard
+                  <Product
                     company={product.company}
                     name={product.name}
                     price={product.price}

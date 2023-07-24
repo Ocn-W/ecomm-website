@@ -33,7 +33,7 @@ nav {
         text-decoration: none;
     }
 
-    ul{
+    ul {
         @include index.flexRowCenter;
         list-style: none;
         gap: 15%;
@@ -45,8 +45,10 @@ nav {
             font-size: 18px;
             text-decoration: none;
             color: index.$primary-txt-color;
-        }:hover {
-          text-decoration: underline;
+        }
+
+        :hover {
+            text-decoration: underline;
         }
     }
 }

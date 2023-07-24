@@ -18,9 +18,11 @@
 
     a {
         cursor: pointer;
+        text-decoration: none;
+        color: index.$primary-txt-color;
     }
 
-    .productBtns button { 
+    .productBtns button {
         margin: 10px;
         padding: 5px;
         border: none;
@@ -55,18 +57,19 @@
                 width: 200px;
                 height: 200px;
                 box-shadow: index.$shadow;
-                background-size: 500px 500px; /* The zoomed-in image size  */
+                background-size: 500px 500px;
+                /* The zoomed-in image size  */
                 background-repeat: no-repeat;
                 border: 1px solid black;
                 display: none;
                 pointer-events: none;
             }
-            
+
             /* Add the 'zoomed' class when the zoom effect is active */
             .zoom.zoomed {
                 display: block;
             }
-        
+
             img {
                 height: 400px;
                 width: 400px;
@@ -108,10 +111,12 @@
             font-weight: 400;
             margin: 0;
         }
+
         h2 {
             font-size: 26px;
             font-weight: 500;
         }
+
         aside {
             line-height: 1.5;
             font-size: 18px;
@@ -134,8 +139,10 @@
                 button {
                     cursor: pointer;
                     border-radius: 50%;
-                    background-color: rgba(0,0,0,0.8);
-                }:active {
+                    background-color: rgba(0, 0, 0, 0.8);
+                }
+
+                :active {
                     color: grey;
                 }
 
@@ -143,7 +150,7 @@
                     text-shadow: index.$shadow;
                     color: black;
                     font-size: 18px;
-                    font-weight: 400; 
+                    font-weight: 400;
                 }
 
             }
@@ -156,7 +163,9 @@
                 border: none;
                 padding: 20px;
                 border-radius: index.$curved-border;
-            }:active {
+            }
+
+            :active {
                 color: grey;
             }
         }
@@ -171,7 +180,9 @@
         top: 10px;
         background: none;
         border: none;
-    }.closeBtn:active {
+    }
+
+    .closeBtn:active {
         color: darkred;
     }
 }
@@ -181,6 +192,7 @@
         transform: translateY(100%);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;

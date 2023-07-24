@@ -7,152 +7,156 @@
     overflow-x: hidden;
 
 
-.playlist {
-    width: 100vw;
-    height: 80vh;
-    background-color: index.$primary-bkg-color;
-    @include index.flexRowCenter;
+    .playlist {
+        width: 100vw;
+        height: 80vh;
+        background-color: index.$primary-bkg-color;
+        @include index.flexRowCenter;
 
-    .banner {        
-        height: 100%;
-        width: 100%;
-        a {
-            background-color: rgba(0,0,0,.8);
-            padding: 30px;
-            color: white;
-            box-shadow: index.$shadow;
-            text-decoration: none;
-            border-radius: index.$curved-border;
-            margin-bottom: 10px;
-        }
-        div {
-            position: inherit;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
+        .banner {
             height: 100%;
-        }
-
-        .inactive {
-            display: none;
-            background-image: none;
-        }
-
-        .playlistBtns {
-            position: absolute;
-            display: flex;
-            height: fit-content;
-            justify-content: space-between;
-            align-items: center;
             width: 100%;
-            top: 50%;
-
-            button {
-                font-size: 40px;
-                margin: 0 20px;
-                background: none;
-                border: none;
-                color: white;
-                cursor: pointer;
-            }
-        }  
-        
-    }
-}
-
-.carousel {   
-    background-color: index.$primary-bkg-color;
-
-    .scroll-horizontal {
-        display: flex;
-        --gap: 2rem;
-        gap: var(--gap);
-    }
-
-    .productCarousel {
-        display: flex;
-        justify-content: space-around;
-        padding: 10px 0;
-        gap: var(--gap);
-        animation: carouselScroll linear 30s infinite;
-        min-width: 100%;
-
-        div {
-            @include index.flexColCenter;
-            width: fit-content;
-            cursor: pointer;
 
             a {
-                position: absolute;
+                background-color: rgba(0, 0, 0, .8);
+                padding: 30px;
                 color: white;
+                box-shadow: index.$shadow;
                 text-decoration: none;
+                border-radius: index.$curved-border;
+                margin-bottom: 10px;
+            }
+
+            div {
+                position: inherit;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
-                font-size: 20px;
-                height: 200px;
-                width: 200px;
+                height: 100%;
             }
-            img {
-                height: 200px;
-                width: 200px;
-                background-color: grey;
+
+            .inactive {
+                display: none;
+                background-image: none;
             }
+
+            .playlistBtns {
+                position: absolute;
+                display: flex;
+                height: fit-content;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                top: 50%;
+
+                button {
+                    font-size: 40px;
+                    margin: 0 20px;
+                    background: none;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+
         }
     }
-}
 
-@keyframes carouselScroll {
-    from {
-        transform: translateX(0);
-    }
+    .carousel {
+        background-color: index.$primary-bkg-color;
 
-    to {
-        transform: translateX(calc(-100% - var(--gap)));
-    }
-}
-
-.large-categories {
-    background-color: index.$primary-bkg-color;
-    padding: 50px 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
-    gap: 50px 0;
-
-    div {
-        height: 300px;
-        width: 500px;
-        background-color: grey;
-        display: flex;
-
-        img {
-            position: absolute;
-            width: 500px;
-            height: 300px;
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
+        .scroll-horizontal {
             display: flex;
-            align-items: flex-end;
-            height: 100%;
-            width: 100%;
-            z-index: 2;
-            text-shadow: index.$shadow;
-            font-size: 80px;
-            padding-left: 10px;
-            cursor: pointer;
+            --gap: 2rem;
+            gap: var(--gap);
+        }
+
+        .productCarousel {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            gap: var(--gap);
+            animation: carouselScroll linear 30s infinite;
+            min-width: 100%;
+
+            div {
+                @include index.flexColCenter;
+                width: fit-content;
+                cursor: pointer;
+
+                a {
+                    position: absolute;
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    font-size: 20px;
+                    height: 200px;
+                    width: 200px;
+                }
+
+                img {
+                    height: 200px;
+                    width: 200px;
+                    background-color: grey;
+                }
+            }
         }
     }
-}
+
+    @keyframes carouselScroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+
+    .large-categories {
+        background-color: index.$primary-bkg-color;
+        padding: 50px 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        justify-items: center;
+        gap: 50px 0;
+
+        div {
+            height: 300px;
+            width: 500px;
+            background-color: grey;
+            display: flex;
+
+            img {
+                position: absolute;
+                width: 500px;
+                height: 300px;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+                display: flex;
+                align-items: flex-end;
+                height: 100%;
+                width: 100%;
+                z-index: 2;
+                text-shadow: index.$shadow;
+                font-size: 80px;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
 
 }
+
 footer {
     text-align: center;
     background-color: index.$primary-bkg-color;
