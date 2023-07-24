@@ -40,7 +40,7 @@ export default function ShoppingCart() {
             <p className="continue" onClick={() => setShowCart(!showCart)}>
               Continue Shopping
             </p>
-            <Link to="/checkout" onClick={() => setShowCart(false)}>
+            <Link to='/checkout' onClick={() => setShowCart(false)}>
               PROCEED TO CHECKOUT
             </Link>
           </section>

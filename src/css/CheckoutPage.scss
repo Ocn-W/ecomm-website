@@ -1,0 +1,76 @@
+@use '../index';
+
+.checkout {
+    height: 100%;
+    width: 100%;
+    background-color: index.$primary-bkg-color;
+    @include index.flexRowCenter;
+
+    .checkoutProducts {
+        height: 100vh;
+        width: 40%;
+        border-left: 1px solid black;
+        .checkoutTotal {
+            @include index.flexColCenter;
+            gap: 0;
+            border-bottom: 1px solid grey;
+
+            div {
+                @include index.flexRowCenter;
+                width: 100%;
+                line-height: 0;
+                gap: 10px;
+                border-bottom: 1px dashed grey;
+            }
+            
+            .checkoutTotalInfo {
+                width: 100%;
+                padding-left: 0;
+                line-height: 0;
+
+                li {
+                    margin-left: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 10px;
+                }
+            }
+        }
+        .productSection {
+            border: 1px solid red;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 60%;
+        
+            .products {
+                display: flex;
+                margin: 5px 0;
+                padding: 0px 5px;
+                gap: 10px;
+                width: 100%;
+                border-bottom: 1px solid grey;
+                img {
+                    height: 50px;
+                    width: 50px;
+                    background-color: grey;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 10px;
+                }
+                button:hover{
+                    text-decoration: underline;
+                }
+            }
+      }
+    }
+
+    .checkoutForm {
+        background-color: index.$primary-bkg-color;
+        height: 100%;
+        width: 70%;
+    }
+}
