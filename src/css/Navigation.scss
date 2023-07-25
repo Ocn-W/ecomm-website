@@ -4,12 +4,13 @@ nav {
     @include index.flexColCenter;
     background-color: index.$primary-bkg-color;
     border-bottom: index.$border-default;
-
+    
     .navUpper {
         @include index.flexRowCenter;
         border-bottom: index.$border-default;
         gap: 75%;
         width: 100%;
+        z-index: 10;
     }
 
     .navIcons {

@@ -4,7 +4,8 @@
     height: 100%;
     width: 100%;
     background-color: index.$primary-bkg-color;
-    @include index.flexRowCenter;
+    display: flex;
+    justify-content: center;
 
     .checkoutProducts {
         height: 100vh;
@@ -68,8 +69,69 @@
     }
 
     .checkoutForm {
+        @include index.flexColCenter;
         background-color: index.$primary-bkg-color;
-        height: 100%;
         width: 70%;
+
+        h1 {
+            margin: 10px 0;
+            font-size: 30px;
+        }
+        
+        form {
+            height: fit-content;
+            width: 80%;
+            text-align: center;
+            border: 1px solid black;
+            border-top-left-radius: index.$curved-border;
+            border-top-right-radius: index.$curved-border;
+
+            input {
+                height: 20px;
+                margin: 5px;
+            }
+            label {
+                font-size: 18px;
+            }
+
+            .paymentSection {
+                padding: 10px 0;
+                @include index.flexRowCenter;
+                border-bottom: 1px dashed grey;
+                gap: 20px;
+                p {
+                    font-size: 18px;
+                    margin: 5px;
+                }
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .contactSection {
+                padding: 10px 0;
+                @include index.flexColCenter;
+                gap: 10px;
+                border-bottom: 1px dashed grey;
+                div {
+                    label {
+                        font-size: 12px;
+                    }
+                    @include index.flexRowCenter;
+                }
+            }
+            .shippingSection {
+                @include index.flexColCenter;
+                padding: 10px 0;
+            }
+
+            button {
+                background-color: black;
+                color: white;
+                padding: 20px;
+                width: 100%;
+                font-size: 24px;
+            }
+        }
     }
 }

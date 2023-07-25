@@ -104,9 +104,7 @@ export default function ProductCard({ company, name, rating, price, id }) {
       </section>
       {showProduct && (
         <section className="productView">
-          <button className="closeBtn" onClick={() => setShowProduct(false)}>
-            X
-          </button>
+
           <section className="productImages">
             <div className="productImgContainer" onMouseMove={handleMouseMove}>
               <div
@@ -172,7 +170,8 @@ export default function ProductCard({ company, name, rating, price, id }) {
                   +
                 </button>
               </div>
-              <button onClick={() => addToCart()}>ADD TO CART</button>
+              <button onClick={() => addToCart()}>ADD TO CART</button>          
+              <button style={{background:'none', color:'blue',textDecoration:'underline', fontSize:'18px'}} onClick={() => setShowProduct(false)}>close</button>
             </section>
           </section>
         </section>
