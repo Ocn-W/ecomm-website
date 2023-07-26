@@ -24,8 +24,6 @@ export default function CheckoutPage() {
   };
 
   function removeProduct(id, size) {
-    console.log(id)
-    console.log('im trying to remove ' + id)
     return updateCartProductList(cartProductList.filter((product) => product.id !== id || product.size !== size));
   }
 

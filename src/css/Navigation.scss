@@ -17,6 +17,7 @@ nav {
         @include index.flexRowCenter;
         gap: 30px;
 
+        .navFave,
         .navCart {
             @include index.flexRowCenter;
             gap: 10px;

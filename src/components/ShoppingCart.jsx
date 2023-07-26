@@ -19,7 +19,6 @@ export default function ShoppingCart() {
 
   return (
     <>
-    
       {showCart && (
         <div className="shoppingCart">
           <h2>YOUR CART</h2>

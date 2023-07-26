@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { atom, useAtom } from "jotai";
+import {useAtom } from "jotai";
 import { addToCartAtom } from "./ShoppingCart";
 import shirt from "../assets/TShirt.jpg";
 import img2 from "../assets/LongSleeve.jpg";
 import img3 from "../assets/Sweater.jpg";
 import img4 from "../assets/Jacket.jpg";
 import "../css/Product.scss";
+import { addToFavoritesAtom } from "./Favorites";
 
-export default function ProductCard({ company, name, rating, price, id }) {
+export default function Product({ company, name, rating, price, id }) {
   const [showProduct, setShowProduct] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [lensPosition, setLensPosition] = useState({ x: 0, y: 0 });
   const [currProdImg, setCurrProdImg] = useState(shirt);
   const [numOfProduct, setProductNum] = useState(1);
   const [size, setSize] = useState("XS");
+  const [insideFavorites, setInsideFavorites] = useAtom(addToFavoritesAtom);
   const [insideCart, setInsideCart] = useAtom(addToCartAtom);
 
   function displayProduct() {
@@ -45,7 +47,7 @@ export default function ProductCard({ company, name, rating, price, id }) {
     }
   };
 
-  //Product to Shopping Cart Features
+//Product to Shopping Cart Features
   function IncrCount(prevCount) {
     return prevCount + 1;
   }
@@ -90,6 +92,26 @@ export default function ProductCard({ company, name, rating, price, id }) {
     }
   }
 
+  function addToFavorites(id) {
+    // Check if the product with the same id and size already exists in favorites
+    const checkFavorites = insideFavorites.some(
+      (product) => product.id === id);
+
+    if (checkFavorites) {
+      alert('Product already exists in favorites.');
+    } else {
+      // Product doesn't exist in favorites, add it to the list
+      const favoritesProduct = {
+        company: company,
+        name: name,
+        rating: rating,
+        price: price,
+        id: id
+      };
+      setInsideFavorites((prevFavorites) => [...prevFavorites, favoritesProduct]);
+    }
+  }
+
   return (
     <>
       <section className="product">
@@ -99,7 +121,7 @@ export default function ProductCard({ company, name, rating, price, id }) {
         <p>${price}</p>
         <div className="productBtns">
           <button onClick={() => displayProduct(id)}>Add to Cart</button>
-          <button>Favorite</button>
+          <button onClick={() => addToFavorites(id)}>Favorite</button>
         </div>
       </section>
       {showProduct && (
