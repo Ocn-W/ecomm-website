@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "../css/HomePage.scss";
 import HomeBanner from "./HomeBanner";
 import HomeCarousel from "./HomeCarousel";
-import wImage2 from '../assets/womensImg2.jpg';
-import mImage2 from '../assets/mensImg2.jpg';
-import aImage2 from '../assets/accImg2.jpg';
-import sImage1 from '../assets/saleImg1.jpg';
+import wImage2 from '../assets/homepage/womensImg2.jpg';
+import mImage2 from '../assets/homepage/mensImg2.jpg';
+import aImage2 from '../assets/homepage/accImg2.jpg';
+import sImage1 from '../assets/homepage/saleImg1.jpg';
 
 export default function HomePage() {
     return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../css/HomePage.scss";
-import mImage1 from "../assets/mensImg1.jpg";
-import wImage1 from "../assets/womensImg1.jpg";
-import aImage1 from "../assets/accImg1.jpg";
+import mImage1 from "../assets/homepage/mensImg1.jpg";
+import wImage1 from "../assets/homepage/womensImg1.jpg";
+import aImage1 from "../assets/homepage/accImg1.jpg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";

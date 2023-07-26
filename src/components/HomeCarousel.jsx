@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/HomePage.scss";
-import mThumb1 from '../assets/mensThumbnail1.jpg';
-import wThumb1 from '../assets/womensThumbnail1.jpg';
-import aThumb1 from '../assets/accThumbnail1.jpg';
-import sThumb1 from '../assets/saleThumbnail1.jpg';
+import mThumb1 from '../assets/homepage/mensThumbnail1.jpg';
+import wThumb1 from '../assets/homepage/womensThumbnail1.jpg';
+import aThumb1 from '../assets/homepage/accThumbnail1.jpg';
+import sThumb1 from '../assets/homepage/saleThumbnail1.jpg';
 
 export default function HomeCarousel() {
   return (
