@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../css/HomePage.scss";
-import image1 from "../assets/fashionimage1.png";
-import image2 from "../assets/fashionimage2.png";
-import image3 from "../assets/fashionimage3.png";
+import mImage1 from "../assets/mensImg1.jpg";
+import wImage1 from "../assets/womensImg1.jpg";
+import aImage1 from "../assets/accImg1.jpg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -10,9 +10,9 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export default function HomeBanner() {
   const [activeBanner, setActiveBanner] = useState(0);
   const bannerBkgs = [
-    { backgroundImage: `url(${image1})` },
-    { backgroundImage: `url(${image2})` },
-    { backgroundImage: `url(${image3})` },
+    { backgroundImage: `url(${mImage1})` },
+    { backgroundImage: `url(${wImage1})` },
+    { backgroundImage: `url(${aImage1})` },
   ];
 
   useEffect(() => {

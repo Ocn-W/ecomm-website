@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import "../css/HomePage.scss";
 import HomeBanner from "./HomeBanner";
 import HomeCarousel from "./HomeCarousel";
+import wImage2 from '../assets/womensImg2.jpg';
+import mImage2 from '../assets/mensImg2.jpg';
+import aImage2 from '../assets/accImg2.jpg';
+import sImage1 from '../assets/saleImg1.jpg';
 
 export default function HomePage() {
-  return (
+    return (
     <section className="homepage">
       <section className="playlist">
         <HomeBanner />
@@ -14,22 +18,18 @@ export default function HomePage() {
         <HomeCarousel />
       </section>
       <section className="large-categories">
-        <div>
-          <img src="#" />
+        <div style={{backgroundImage:`url(${mImage2})`, backgroundPosition:'top'}}>
           <Link to="/shop">MENS</Link>
         </div>
-        <div>
-          <img src="#" />
+        <div style={{backgroundImage:`url(${wImage2})`}}>
           <Link to="/shop">WOMENS</Link>
         </div>
-        <div>
-          <img src="#" />
+        <div style={{backgroundImage:`url(${aImage2})`, backgroundPosition:'center'}}>
           <Link to="/shop" style={{ fontSize: "72px" }}>
             ACCESSORIES
           </Link>
         </div>
-        <div>
-          <img src="#" />
+        <div style={{backgroundImage:`url(${sImage1})`, backgroundPosition:'center'}}>
           <Link
             to="/shop"
             style={{

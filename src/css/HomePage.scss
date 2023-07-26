@@ -90,11 +90,13 @@
                 a {
                     position: absolute;
                     color: white;
+                    text-shadow: index.$shadow;
+                    font-weight: 500;
                     text-decoration: none;
                     display: flex;
                     justify-content: center;
                     align-items: flex-end;
-                    font-size: 20px;
+                    font-size: 26px;
                     height: 200px;
                     width: 200px;
                 }
@@ -102,6 +104,7 @@
                 img {
                     height: 200px;
                     width: 200px;
+                    background-size: cover;
                     background-color: grey;
                 }
             }
@@ -130,14 +133,7 @@
         div {
             height: 300px;
             width: 500px;
-            background-color: grey;
             display: flex;
-
-            img {
-                position: absolute;
-                width: 500px;
-                height: 300px;
-            }
 
             a {
                 text-decoration: none;
