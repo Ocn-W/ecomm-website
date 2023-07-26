@@ -25,7 +25,7 @@ export default function Favorites() {
                   <p>{product.company}</p>
                   <p>{product.name}</p>
                   <p>${product.price}</p>
-                  <button style={{color:'rgba(206, 29, 29, 0.5)'}} onClick={() => removeProduct(insideFavorites[index].id, index)}>Remove</button>
+                  <button style={{color:'rgba(206, 29, 29, 0.5)'}} onClick={() => removeProduct(insideFavorites[index].id)}>Remove</button>
                 </div>
               );
             })}
