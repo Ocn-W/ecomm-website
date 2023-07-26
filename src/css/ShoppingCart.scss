@@ -8,6 +8,15 @@
     z-index: 5;
     border: 1px solid grey;
 
+    h2 {
+        margin: 0;
+        text-align: center;
+        background-color: index.$primary-bkg-color;
+        width: 100%;
+        border: 1px solid white;
+        border-bottom: 1px solid black;
+    }
+
     .productSection {
         height: 80%;
         overflow-y: auto;

@@ -72,7 +72,7 @@ export default function CheckoutPage() {
           </div>
           <input type='phone' id='shipping-info' name='phone' placeholder='Phone (optional)' style={{width:'50%'}}/>
         </section>
-        <button onClick={() => alert('This is a mock form, thank you for using the demo!')}>Continue</button>
+        <button onClick={() => alert('This is a mock form, thank you for using the demo!')}>Continue &#x2192;</button>
       </form>
       </section>
       <section className='checkoutProducts'>

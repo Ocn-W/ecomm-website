@@ -19,8 +19,10 @@ export default function ShoppingCart() {
 
   return (
     <>
+    
       {showCart && (
         <div className="shoppingCart">
+          <h2>YOUR CART</h2>
           <section className="productSection">
             {insideCart[0].map((product) => {
               return (
