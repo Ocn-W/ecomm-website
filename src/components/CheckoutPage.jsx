@@ -4,6 +4,10 @@ import { useAtom } from 'jotai';
 import { addToCartAtom } from './ShoppingCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import shirt from "../assets/shoppingPage/Shirt.jpg";
+import jeans from "../assets/shoppingPage/Jeans.jpg";
+import sneakers from "../assets/shoppingPage/Sneakers.jpg";
+import sweater from "../assets/shoppingPage/Sweater.jpg";
 
 export default function CheckoutPage() {
   const [cartProductList, updateCartProductList] = useAtom(addToCartAtom);
@@ -89,7 +93,7 @@ export default function CheckoutPage() {
       {cartProductList.map((product) => {
               return (
                 <div className='products'>
-                  <img src="#" />
+                  <img src={product.name === "Shirt" ? shirt : product.name === "Jeans" ? jeans : product.name === "Sneakers" ? sneakers : product.name === "Sweater" && sweater} />
                   <p>{product.company}</p>
                   <p>{product.name}</p>
                   <p>${product.price}</p>

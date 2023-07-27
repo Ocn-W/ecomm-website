@@ -2,6 +2,11 @@ import React from "react";
 import { atom, useAtom } from "jotai";
 import "../css/ShoppingCart.scss";
 import { Link } from "react-router-dom";
+import shirt from "../assets/shoppingPage/Shirt.jpg";
+import jeans from "../assets/shoppingPage/Jeans.jpg";
+import sneakers from "../assets/shoppingPage/Sneakers.jpg";
+import sweater from "../assets/shoppingPage/Sweater.jpg";
+
 export const showCartAtom = atom(false);
 export const addToCartAtom = atom([]);
 
@@ -26,7 +31,7 @@ export default function ShoppingCart() {
             {insideCart[0].map((product) => {
               return (
                 <div className="cartProduct">
-                  <img src="#" />
+                  <img src={product.name === "Shirt" ? shirt : product.name === "Jeans" ? jeans : product.name === "Sneakers" ? sneakers : product.name === "Sweater" && sweater}/>
                   <p>{product.company}</p>
                   <p>{product.name}</p>
                   <p>${product.price}</p>

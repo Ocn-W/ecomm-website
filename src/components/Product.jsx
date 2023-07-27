@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {useAtom } from "jotai";
 import { addToCartAtom } from "./ShoppingCart";
-import shirt from "../assets/TShirt.jpg";
-import img2 from "../assets/LongSleeve.jpg";
-import img3 from "../assets/Sweater.jpg";
-import img4 from "../assets/Jacket.jpg";
+import shirt from "../assets/shoppingPage/Shirt.jpg";
+import jeans from "../assets/shoppingPage/Jeans.jpg";
+import sneakers from "../assets/shoppingPage/Sneakers.jpg";
+import sweater from "../assets/shoppingPage/Sweater.jpg";
 import "../css/Product.scss";
 import { addToFavoritesAtom } from "./Favorites";
 
@@ -12,7 +12,7 @@ export default function Product({ company, name, rating, price, id }) {
   const [showProduct, setShowProduct] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [lensPosition, setLensPosition] = useState({ x: 0, y: 0 });
-  const [currProdImg, setCurrProdImg] = useState(shirt);
+  const [currProdImg, setCurrProdImg] = useState(name === "Shirt" ? shirt : name === "Jeans" ? jeans : name === "Sneakers" ? sneakers : name === "Sweater" && sweater);
   const [numOfProduct, setProductNum] = useState(1);
   const [size, setSize] = useState("XS");
   const [insideFavorites, setInsideFavorites] = useAtom(addToFavoritesAtom);
@@ -115,7 +115,7 @@ export default function Product({ company, name, rating, price, id }) {
   return (
     <>
       <section className="product">
-        <img src="#" />
+        <img src={name === "Shirt" ? shirt : name === "Jeans" ? jeans : name === "Sneakers" ? sneakers : name === "Sweater" && sweater}/>
         <a onClick={() => displayProduct(id)}>{company}</a>
         <a onClick={() => displayProduct(id)}>{name}</a>
         <p>${price}</p>
@@ -126,7 +126,6 @@ export default function Product({ company, name, rating, price, id }) {
       </section>
       {showProduct && (
         <section className="productView">
-
           <section className="productImages">
             <div className="productImgContainer" onMouseMove={handleMouseMove}>
               <div
@@ -146,9 +145,9 @@ export default function Product({ company, name, rating, price, id }) {
             </div>
             <div className="imageSelect">
               <img src={shirt} onClick={() => setCurrProdImg(shirt)} />
-              <img src={img2} onClick={() => setCurrProdImg(img2)} />
-              <img src={img3} onClick={() => setCurrProdImg(img3)} />
-              <img src={img4} onClick={() => setCurrProdImg(img4)} />
+              <img src={jeans} onClick={() => setCurrProdImg(jeans)} />
+              <img src={sneakers} onClick={() => setCurrProdImg(sneakers)} />
+              <img src={sweater} onClick={() => setCurrProdImg(sweater)} />
             </div>
           </section>
           <section className="productDetails">
