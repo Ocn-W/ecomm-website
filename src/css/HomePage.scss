@@ -16,12 +16,15 @@
         .banner {
             height: 100%;
             width: 100%;
+            position: relative;
 
             a {
                 background-color: rgba(0, 0, 0, .8);
                 padding: 30px;
                 color: white;
                 box-shadow: index.$shadow;
+                font-weight: 500;
+                font-size: 18px;
                 text-decoration: none;
                 border-radius: index.$curved-border;
                 margin-bottom: 10px;
@@ -49,7 +52,6 @@
                 height: fit-content;
                 justify-content: space-between;
                 align-items: center;
-                width: 100%;
                 top: 50%;
 
                 button {
@@ -57,11 +59,10 @@
                     margin: 0 20px;
                     background: none;
                     border: none;
-                    color: white;
+                    color: black;
                     cursor: pointer;
                 }
             }
-
         }
     }
 
@@ -89,9 +90,9 @@
 
                 a {
                     position: absolute;
-                    color: white;
+                    color: snow;
                     text-shadow: index.$shadow;
-                    font-weight: 500;
+                    font-weight: 800;
                     text-decoration: none;
                     display: flex;
                     justify-content: center;
@@ -143,6 +144,7 @@
                 height: 100%;
                 width: 100%;
                 z-index: 2;
+                font-weight: 300;
                 text-shadow: index.$shadow;
                 font-size: 80px;
                 padding-left: 10px;
