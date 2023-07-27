@@ -9,6 +9,8 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function HomeBanner() {
   const [activeBanner, setActiveBanner] = useState(0);
+  const [paused, setPaused] = useState(false);
+
   const bannerBkgs = [
     { backgroundImage: `url(${mImage1})` },
     { backgroundImage: `url(${wImage1})` },
@@ -16,12 +18,16 @@ export default function HomeBanner() {
   ];
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setActiveBanner(
         activeBanner !== bannerBkgs.length - 1 ? activeBanner + 1 : 0
       );
     }, 3000);
-  });
+  
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [activeBanner, bannerBkgs.length]);
 
   return (
     <section className="banner">
